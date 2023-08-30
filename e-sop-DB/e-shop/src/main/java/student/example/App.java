@@ -84,6 +84,19 @@ public class App
         st.executeUpdate(alterDelete);
         System.out.println("after DELETE ALTERATION !!!");
 
+
+        rs = st.executeQuery("SELECT * FROM currencies ");
+        while (rs.next()) {
+        System.out.println(rs.getInt(1));
+        System.out.println(rs.getString(2));
+        System.out.println(rs.getString(3));
+        System.out.println(rs.getDouble(4));
+        }
+
+        String alterUpdate ="UPDATE currencies SET rate = 3.9069 WHERE id = 946";
+        st.executeUpdate(alterUpdate);
+        System.out.println("after 'rate' UPDATE !!!");
+
         
         rs = st.executeQuery("SELECT * FROM currencies ");
         while (rs.next()) {
@@ -92,6 +105,7 @@ public class App
         System.out.println(rs.getString(3));
         System.out.println(rs.getDouble(4));
         }
+        
         
         preparedStatement1.close();
         preparedStatement.close();
@@ -103,9 +117,3 @@ public class App
     }
 }
 
-        
-
-        
-       
-    }
-}
